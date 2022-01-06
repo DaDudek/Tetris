@@ -1,10 +1,29 @@
-from db.DatabaseSettings import session
-import color.Color as Color
-import exception.WrongColorNameException
+from color.Color import Color
 
 
-def get_by_name(name: str):
-    if name not in Color.COLOR_NAMES:
-        raise exception.WrongColorNameException
-    return session.query(Color).filter(Color.get_name() == name).first()
+def get_red():
+    return Color(255, 0, 0)
 
+
+def get_blue():
+    return Color(0, 0, 255)
+
+
+def get_green():
+    return Color(0, 255, 0)
+
+
+def get_orange():
+    return Color(255, 128, 0)
+
+
+def get_yellow():
+    return Color(255, 255, 0)
+
+
+def get_purple():
+    return Color(76, 0, 153)
+
+
+def get_maritime():
+    return Color(0, 255, 255)

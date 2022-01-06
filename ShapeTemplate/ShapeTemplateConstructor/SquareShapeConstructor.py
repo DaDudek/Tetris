@@ -31,4 +31,4 @@ def construct():
                          ])
 
     return ShapeTemplate([first_rotate, second_rotate, third_rotate, fourth_rotate],
-                         color.ColorService.get_by_name("YELLOW"))
+                         color.ColorService.get_yellow())
