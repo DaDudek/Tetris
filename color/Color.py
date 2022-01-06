@@ -14,12 +14,6 @@ class Color:
     def get_green_part(self):
         return self.green
 
-
-COLOR_NAMES = ["RED",
-               "GREEN",
-               "BLUE",
-               "MARITIME",
-               "ORANGE",
-               "YELLOW",
-               "PURPLE"]
+    def get_color(self):
+        return self.red, self.green, self.blue
 
