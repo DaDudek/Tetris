@@ -1,5 +1,5 @@
 from db.DatabaseSettings import session
-import model.Color as Color
+import color.Color as Color
 import exception.WrongColorNameException
 
 
