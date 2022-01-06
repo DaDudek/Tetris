@@ -28,3 +28,11 @@ class Color(Base):
         return self.name
 
 
+COLOR_NAMES = ["RED",
+               "GREEN",
+               "BLUE",
+               "MARITIME",
+               "ORANGE",
+               "YELLOW",
+               "PURPLE"]
+
