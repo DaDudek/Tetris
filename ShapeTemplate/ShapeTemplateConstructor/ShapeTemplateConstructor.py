@@ -1,4 +1,5 @@
-from ShapeTemplate.ShapeTemplateConstructor import LongShapeConstructor, ReverseLShapeConstructor, LShapeConstructor
+from ShapeTemplate.ShapeTemplateConstructor import LongShapeConstructor, ReverseLShapeConstructor, LShapeConstructor, \
+    SquareShapeConstructor
 
 
 def construct_long_shape():
@@ -11,3 +12,7 @@ def construct_l_shape():
 
 def construct_reverse_l_shape():
     return ReverseLShapeConstructor.construct()
+
+
+def construct_square_shape():
+    return SquareShapeConstructor.construct()
