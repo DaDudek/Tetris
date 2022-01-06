@@ -7,7 +7,7 @@ class Shape(Base):
     __tablename__ = "Shape"
 
     id = Column(Integer, primary_key=True)
-    actualPoints = []
+    points = []
     actualRotation = Column(Integer, primary_key=True)
     possibleRotation = []
     color = relationship("Color")
@@ -20,6 +20,9 @@ class Shape(Base):
 
     def get_actual_rotation(self):
         return self.actualRotation
+
+    def set_points(self, points_list):
+        self.points = points_list
 
     def get_next_rotation(self):
         return self.possibleRotation[(self.actualRotation+1) % len(self.possibleRotation)]
