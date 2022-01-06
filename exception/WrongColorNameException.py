@@ -1,0 +1,2 @@
+class WrongColorNameException(Exception):
+    pass
