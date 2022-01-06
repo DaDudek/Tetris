@@ -2,7 +2,7 @@ from model.Point import Point
 from gameSettings.SizeConstants import *
 
 
-class Shape():
+class Shape:
     def __init__(self):
         self.upper_left_square = Point(INIT_WIGHT/2, INIT_HIGHT)
         self.actualRotation = 0
