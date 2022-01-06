@@ -21,5 +21,8 @@ class Shape:
     def get_color(self):
         return self.shapeTemplate.color.get_color()
 
+    def set_coordinate(self, coordinate):
+        self.upper_left_square = coordinate
+
 
 
