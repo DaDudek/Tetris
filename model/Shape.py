@@ -1,6 +1,9 @@
+from model.Point import Point
+
+
 class Shape():
     def __init__(self):
-        self.points = []  # list of points to draw
+        self.upper_left_square = Point()
         self.actualRotation = 0
         self.shapeTemplate = None  # shape template
 
