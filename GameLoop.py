@@ -14,7 +14,7 @@ queue = ShapeQueue()
 pygame.time.set_timer(FALLING_EVENT,  1000)
 while is_running:
     shape = queue.get_current()
-    handle_events(shape)
+    handle_events(shape, queue)
     window_surface.blit(background, (0, 0))
     background.fill((255, 255, 255))
     draw_shape(shape, background)
