@@ -21,11 +21,11 @@ def handle_events(shape, board):
 def handle_keyboard_press(event, shape, board):
     if event.key == pygame.K_LEFT:
         move_left(shape)
-        if CollisionDetector.check_for_horizontal_collision(shape):
+        if CollisionDetector.check_for_collision(shape, board.get_all_squares_to_check()):
             move_right(shape)
     if event.key == pygame.K_RIGHT:
         move_right(shape)
-        if CollisionDetector.check_for_horizontal_collision(shape):
+        if CollisionDetector.check_for_collision(shape, board.get_all_squares_to_check()):
             move_left(shape)
     if event.key == pygame.K_DOWN:
         handle_falling(shape, board)
@@ -36,9 +36,7 @@ def handle_keyboard_press(event, shape, board):
 def handle_falling(shape, board):
     move_down(shape)
     queue = board.get_queue()
-    stacked_squares = board.get_invisible_squares()
-    stacked_squares.extend(board.get_squares())
-    if CollisionDetector.check_for_vertical_collision(shape, stacked_squares):
+    if CollisionDetector.check_for_collision(shape, board.get_all_squares_to_check()):
         move_up(shape)
         board.add_shape(shape)
         queue.remove_current()

@@ -22,6 +22,19 @@ class Board:
             squares.append(Square(Point(i * INIT_SQUARE_SIZE,
                                  INIT_HIGHT),
                                   None))
+        for i in range(NUMBER_OF_ROWS):
+            squares.append(Square(Point(-INIT_SQUARE_SIZE,
+                                        i*INIT_SQUARE_SIZE),
+                                  None))
+            squares.append(Square(Point(INIT_WIGHT,
+                                        i * INIT_SQUARE_SIZE),
+                                  None))
+
+        return squares
+
+    def get_all_squares_to_check(self):
+        squares = self.get_invisible_squares()
+        squares.extend(self.stacked_squares)
         return squares
 
     def add_shape(self, shape):

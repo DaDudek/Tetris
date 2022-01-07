@@ -16,7 +16,7 @@ def draw_square(square, surface):
                                                                  INIT_SQUARE_SIZE, INIT_SQUARE_SIZE))
 
 def draw_backgroiund(surface):
-    for i in range(NUMEBR_OF_ROWS):
+    for i in range(NUMBER_OF_ROWS):
         for j in range(NUMBER_OF_SQUARES_IN_ROW):
             init_x = j * INIT_SQUARE_SIZE
             init_y = i * INIT_SQUARE_SIZE
