@@ -18,7 +18,7 @@ def construct():
 
     third_rotate = Box([Row([Field(False), Field(False), Field(False)]),
                         Row([Field(False), Field(True),  Field(True)]),
-                        Row([Field(True),  Field(True),  Field(True)]),
+                        Row([Field(True),  Field(True),  Field(False)]),
                         ])
 
     fourth_rotate = Box([Row([Field(True),  Field(False), Field(False)]),
