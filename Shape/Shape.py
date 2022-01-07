@@ -14,9 +14,8 @@ class Shape:
     def get_actual_rotation(self):
         return self.shapeTemplate.get_rotation(self.actualRotation)
 
-    def get_next_rotation(self):
+    def next_rotation(self):
         self.actualRotation = (self.actualRotation + 1) % 4
-        return self.get_actual_rotation()
 
     def get_color(self):
         return self.shapeTemplate.color.get_color()

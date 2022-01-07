@@ -2,7 +2,7 @@ import sys
 
 import pygame.event
 
-from Shape.ShapeMove import move_down, move_left, move_right
+from Shape.ShapeMove import move_down, move_left, move_right, move_up
 
 FALLING_EVENT = pygame.USEREVENT+1
 
@@ -22,3 +22,5 @@ def handle_keyboard_press(event, shape):
         move_right(shape)
     if event.key == pygame.K_DOWN:
         move_down(shape)
+    if event.key == pygame.K_UP:
+        move_up(shape)

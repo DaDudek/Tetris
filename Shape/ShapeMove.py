@@ -13,3 +13,6 @@ def move_left(shape):
 def move_right(shape):
     shape.set_coordinate(Point(shape.get_coordinate().getX()+INIT_SQUARE_SIZE,
                                shape.get_coordinate().getY()))
+
+def move_up(shape):
+    shape.next_rotation()
