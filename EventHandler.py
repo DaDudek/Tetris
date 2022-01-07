@@ -21,8 +21,12 @@ def handle_events(shape, board):
 def handle_keyboard_press(event, shape, board):
     if event.key == pygame.K_LEFT:
         move_left(shape)
+        if CollisionDetector.check_for_horizontal_collision(shape):
+            move_right(shape)
     if event.key == pygame.K_RIGHT:
         move_right(shape)
+        if CollisionDetector.check_for_horizontal_collision(shape):
+            move_left(shape)
     if event.key == pygame.K_DOWN:
         handle_falling(shape, board)
     if event.key == pygame.K_UP:

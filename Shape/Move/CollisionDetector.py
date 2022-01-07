@@ -11,6 +11,6 @@ def check_for_vertical_collision(shape, squares):
 
 def check_for_horizontal_collision(shape):
     for square in shape.get_squares():
-        if square.getX() >= INIT_WIGHT or square.getX <= 0:
+        if square.getX() >= INIT_WIGHT or square.getX() < 0:
             return True
     return False

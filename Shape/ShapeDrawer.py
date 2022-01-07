@@ -1,7 +1,5 @@
 import pygame
 from gameSettings.SizeConstants import *
-from model.Point import Point
-from model.Square import Square
 
 
 def draw_board(board, surface):
