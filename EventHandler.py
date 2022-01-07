@@ -2,7 +2,7 @@ import sys
 
 import pygame.event
 
-from Shape.ShapeMove import move_down, move_left, move_right, move_up
+from Shape.Move.ShapeMove import move_down, move_left, move_right, move_up
 
 FALLING_EVENT = pygame.USEREVENT+1
 
