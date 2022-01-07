@@ -1,5 +1,6 @@
 from model.Point import Point
 from gameSettings.SizeConstants import *
+from model.Square import Square
 
 
 class Shape:
@@ -23,18 +24,21 @@ class Shape:
     def set_coordinate(self, coordinate):
         self.upper_left_square = coordinate
 
-    def get_points(self):
-        points = [] # list of points
+    def get_squares(self):
+        squares = [] # list of squares
         row_number = 0
         for row in self.get_actual_rotation().rows:
             field_number = 0
             for field in row.fields:
                 if field.isFill:
-                    points.append(Point(self.count_X_coordinate(field_number),
-                                        self.count_Y_coordinate(row_number)))
+                    squares.append(
+                        Square(
+                              Point(self.count_X_coordinate(field_number),
+                                    self.count_Y_coordinate(row_number)),
+                              self.get_color()))
                 field_number += 1
             row_number += 1
-        return points
+        return squares
 
     def count_X_coordinate(self, field_number):
         return self.get_coordinate().getX() + (INIT_SQUARE_SIZE * field_number)

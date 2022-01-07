@@ -17,7 +17,7 @@ while is_running:
     handle_events(shape, queue)
     window_surface.blit(background, (0, 0))
     background.fill((255, 255, 255))
-    draw_shape(shape, background)
+    draw_shape(shape.get_squares(), background)
     pygame.display.flip()
 
      #pygame.display.update()
