@@ -1,6 +1,8 @@
 from gameSettings.SizeConstants import *
 from model.Point import Point
 from model.Square import Square
+import destoryRow.rowChecker
+
 
 
 class Board:
@@ -40,6 +42,10 @@ class Board:
     def add_shape(self, shape):
         for square in shape.get_squares():
             self.stacked_squares.append(square)
+        self.stacked_squares = sorted(self.stacked_squares, key = lambda point: (point.getY(), point.getX()))
+        destoryRow.rowChecker.checkForRemove(self)
 
-    # TODO add detection of walls
-
+    def remove_all_from_list(self, squares):
+        for square in squares:
+            if square in self.stacked_squares:
+                self.stacked_squares.remove(square)
