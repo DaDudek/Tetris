@@ -1,10 +1,11 @@
 from gameSettings.SizeConstants import *
 
 
-def check_for_vertical_collision(shape):
+def check_for_vertical_collision(shape, squares):
     for square in shape.get_squares():
-        if square.getY() >= INIT_HIGHT:
-            return True
+        for stacked_square in squares:
+            if square.getY() >= stacked_square.getY() and square.getX() == stacked_square.getX():
+                return True
     return False
 
 
