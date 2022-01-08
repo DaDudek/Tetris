@@ -27,3 +27,7 @@ def get_purple():
 
 def get_maritime():
     return Color(0, 255, 255)
+
+
+def get_shadow():
+    return Color(210, 210, 210)
