@@ -9,5 +9,8 @@ class Square:
     def getY(self):
         return self.point.getY()
 
+    def setY(self, Y):
+        return self.point.setY(Y)
+
     def get_color(self):
         return self.color

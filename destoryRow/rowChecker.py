@@ -1,4 +1,5 @@
 from gameSettings.SizeConstants import *
+from Shape.Move.ShapeMove import move_board_part_down
 
 
 def checkForRemove(board):
@@ -10,8 +11,10 @@ def checkForRemove(board):
         actual_row = board.get_squares()[0].getY()
         counter = 0
         possible_needed_to_be_removed = []
+        checked_squares = []
         for square in board.get_squares():
             possible_needed_to_be_removed.append(square)
+            checked_squares.append(square)
             if square.getY() == actual_row:
                 counter += 1
             else:
@@ -23,4 +26,5 @@ def checkForRemove(board):
                 break
         if len(possible_needed_to_be_removed) == NUMBER_OF_SQUARES_IN_ROW:
             board.remove_all_from_list(possible_needed_to_be_removed)
+            move_board_part_down(board, checked_squares)
 
