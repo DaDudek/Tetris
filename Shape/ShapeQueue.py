@@ -20,6 +20,7 @@ class ShapeQueue:
         self.choose_different_then_previous()
         random_template = construct_by_id(self.last_index)
         self.add_to_queue(Shape(random_template))
+        #self.add_to_queue(Shape(construct_by_id(3)))
 
     def remove_current(self):
         self.queue.pop(0)
@@ -31,3 +32,6 @@ class ShapeQueue:
         possible_indexes.append(self.last_index)
         possible_indexes.remove(random_id)
         self.last_index = random_id
+
+    def get_by_position(self, position):
+        return  self.queue[position]
