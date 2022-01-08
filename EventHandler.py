@@ -31,6 +31,8 @@ def handle_keyboard_press(event, shape, board):
         handle_falling(shape, board)
     if event.key == pygame.K_UP:
         rotate(shape)
+        if CollisionDetector.check_for_collision(shape, board.get_all_squares_to_check()):
+            shape.previous_rotation()
 
 
 def handle_falling(shape, board):
