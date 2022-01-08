@@ -11,6 +11,9 @@ class Board:
         self.queue = queue
         self.score = score
 
+    def get_score(self):
+        return self.score
+
     def get_queue(self):
         return self.queue
 
