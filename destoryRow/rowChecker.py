@@ -26,5 +26,6 @@ def checkForRemove(board):
                 break
         if len(possible_needed_to_be_removed) == NUMBER_OF_SQUARES_IN_ROW:
             board.remove_all_from_list(possible_needed_to_be_removed)
+            board.add_point_for_row()
             move_board_part_down(board, checked_squares)
 

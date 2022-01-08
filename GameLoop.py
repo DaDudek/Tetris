@@ -2,6 +2,7 @@ from Shape.ShapeQueue import ShapeQueue
 from Shape.ShapeDrawer import draw_board
 from EventHandler import *
 from model.Board import Board
+from model.Score import Score
 
 pygame.init()
 
@@ -16,7 +17,8 @@ textsurface = myfont.render("Next", False, (0, 0, 0))
 
 is_running = True
 queue = ShapeQueue()
-board = Board(queue)
+score = Score("Dawid")
+board = Board(queue, score)
 pygame.time.set_timer(FALLING_EVENT,  1000)
 while is_running:
     shape = queue.get_current()

@@ -45,6 +45,7 @@ def handle_falling(shape, board):
     if CollisionDetector.check_for_collision(shape, board.get_all_squares_to_check()):
         move_up(shape)
         board.add_shape(shape)
+        board.add_point_for_shape(shape)
         queue.remove_current()
         queue.add_random_to_queue()
         check_for_game_over(board)
