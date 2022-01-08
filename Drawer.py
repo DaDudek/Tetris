@@ -7,14 +7,23 @@ from model.Point import Point
 
 
 def draw_board(board, surface):
-    current_shape = board.get_queue().get_current()
-    draw_shadow(current_shape, board.get_all_squares_to_check(), surface) # shadow
+    draw_shadow(board, surface)
 
-    draw_background(surface) #background
-    draw_squares(board.get_squares(), surface) #board
+    draw_background(surface)
 
-    draw_squares(current_shape.get_squares(), surface) # current
+    draw_stacked_shapes(board, surface)
+
+    draw_current_shape(board, surface)
+
     draw_queue(board, surface)
+
+def draw_stacked_shapes(board, surface):
+    draw_squares(board.get_squares(), surface)
+
+def draw_current_shape(board, surface):
+    current_shape = board.get_queue().get_current()
+    draw_squares(current_shape.get_squares(), surface) # current
+
 
 
 def draw_square(square, surface):
@@ -49,7 +58,9 @@ def draw_queue(board, surface):
         draw_squares(shape.get_squares(), surface)
         shape.set_coordinate(previous_coordinate)
 
-def draw_shadow(current_shape, squares, surface):
+def draw_shadow(board, surface):
+    current_shape = board.get_queue().get_current()
+    squares = board.get_all_squares_to_check()
     shadow_shape = shadow_move(current_shape, squares)
     shadow_squares = shadow_shape.get_squares()
     for square in shadow_squares:

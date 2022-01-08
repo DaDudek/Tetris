@@ -1,5 +1,5 @@
 from Shape.ShapeQueue import ShapeQueue
-from Shape.ShapeDrawer import draw_board
+from Drawer import draw_board
 from EventHandler import *
 from Speed.Speed import Speed
 from model.Board import Board
