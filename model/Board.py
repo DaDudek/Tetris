@@ -6,10 +6,14 @@ import destoryRow.rowChecker
 
 
 class Board:
-    def __init__(self, queue, score):
+    def __init__(self, queue, score, speed):
         self.stacked_squares = []  # list of squares
         self.queue = queue
         self.score = score
+        self.speed = speed
+
+    def get_speed(self):
+        return self.speed
 
     def get_score(self):
         return self.score

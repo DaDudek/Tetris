@@ -3,14 +3,20 @@ import sys
 import pygame.event
 import Shape.Move.CollisionDetector as CollisionDetector
 
+
 from Shape.Move.ShapeMove import move_down, move_left, move_right, rotate, move_up
 
 FALLING_EVENT = pygame.USEREVENT + 1
 GAME_OVER_EVENT = pygame.USEREVENT + 2
+SPEED_UP_EVENT = pygame.USEREVENT + 3
 
 
 def handle_events(shape, board):
     for event in pygame.event.get():
+        if event.type == SPEED_UP_EVENT:
+            speed = board.get_speed()
+            speed.speed_up()
+            pygame.time.set_timer(FALLING_EVENT, speed.get_current_speed())
         if event.type == pygame.QUIT:
             sys.exit()
         if event.type == FALLING_EVENT:
@@ -20,7 +26,6 @@ def handle_events(shape, board):
         if event.type == GAME_OVER_EVENT:
             print("GAME OVER")
             sys.exit()
-
 
 def handle_keyboard_press(event, shape, board):
     if event.key == pygame.K_LEFT:
