@@ -31,3 +31,9 @@ def get_maritime():
 
 def get_shadow():
     return Color(210, 210, 210)
+
+def get_white():
+    return Color(255, 255, 255)
+
+def get_black():
+    return Color(0, 0, 0)
