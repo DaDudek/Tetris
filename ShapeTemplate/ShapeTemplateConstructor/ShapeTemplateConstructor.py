@@ -1,8 +1,9 @@
+from ShapeTemplate.ShapeTemplate import ShapeTemplate
 from ShapeTemplate.ShapeTemplateConstructor import LongShapeConstructor, ReverseLShapeConstructor, LShapeConstructor, \
     SquareShapeConstructor, ReverseZShapeConstructor, ZShapeConstructor, TShapeConstructor
 
 
-def construct_by_id(id):
+def construct_by_id(id: int) -> ShapeTemplate:
     if id == 0:
         return construct_long_shape()
     if id == 1:
@@ -19,29 +20,29 @@ def construct_by_id(id):
         return construct_t_shape()
 
 
-def construct_long_shape():
+def construct_long_shape() -> ShapeTemplate:
     return LongShapeConstructor.construct()
 
 
-def construct_l_shape():
+def construct_l_shape() -> ShapeTemplate:
     return LShapeConstructor.construct()
 
 
-def construct_reverse_l_shape():
+def construct_reverse_l_shape() -> ShapeTemplate:
     return ReverseLShapeConstructor.construct()
 
 
-def construct_square_shape():
+def construct_square_shape() -> ShapeTemplate:
     return SquareShapeConstructor.construct()
 
 
-def construct_reverse_z_shape():
+def construct_reverse_z_shape() -> ShapeTemplate:
     return ReverseZShapeConstructor.construct()
 
 
-def construct_z_shape():
+def construct_z_shape() -> ShapeTemplate:
     return ZShapeConstructor.construct()
 
 
-def construct_t_shape():
+def construct_t_shape() -> ShapeTemplate:
     return TShapeConstructor.construct()

@@ -1,3 +1,8 @@
+from typing import List
+
+from ShapeTemplate.Field import Field
+
+
 class Row:
-    def __init__(self, fields):
-        self.fields = fields  # list of fields
+    def __init__(self, fields: List[Field]):
+        self.fields = fields

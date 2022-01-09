@@ -1,3 +1,3 @@
 class Field:
-    def __init__(self, isFill):
-        self.isFill = isFill  # boolean
+    def __init__(self, isFill: bool):
+        self.isFill: bool = isFill

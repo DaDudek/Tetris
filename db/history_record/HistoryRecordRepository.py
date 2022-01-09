@@ -1,18 +1,20 @@
+from typing import Iterable
+
 from db.history_record.HistoryRecord import HistoryRecord, get_session
 
 
-def get_all():
+def get_all() -> Iterable[HistoryRecord]:
     session = get_session()
     return session.query(HistoryRecord).all()
 
 
-def save(historyRecord):
+def save(historyRecord: HistoryRecord) -> None:
     session = get_session()
     session.add(historyRecord)
     session.commit()
 
 
-def get_top_ten():
+def get_top_ten() -> Iterable[HistoryRecord]:
     records = get_all()
     records = sorted(records, key=lambda record: (record.get_points(), record.get_player_name()), reverse=True)
     while len(records) < 10:

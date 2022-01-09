@@ -15,13 +15,13 @@ class HistoryRecord(Base):
     points = Column(Integer, nullable=False)
     player_name = Column(String, nullable=False)
 
-    def get_points(self):
+    def get_points(self) -> int:
         return self.points
 
-    def get_player_name(self):
+    def get_player_name(self) -> str:
         return self.player_name
 
-    def __str__(self):
+    def __str__(self) -> str:
         return f"{self.player_name} {self.points}"
 
 
@@ -32,5 +32,5 @@ Session = sessionmaker(bind=engine)
 session = Session()
 
 
-def get_session():
+def get_session() -> Session:
     return session

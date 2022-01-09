@@ -4,9 +4,10 @@ from ShapeTemplate.Box import Box
 from ShapeTemplate.Field import Field
 from ShapeTemplate.Row import Row
 
-def construct():
+
+def construct() -> ShapeTemplate:
     first_rotate = Box([Row([Field(False), Field(False), Field(True)]),
-                        Row([Field(True),  Field(True),  Field(True)]),
+                        Row([Field(True), Field(True), Field(True)]),
                         Row([Field(False), Field(False), Field(False)]),
                         ])
 
@@ -17,11 +18,11 @@ def construct():
 
     third_rotate = Box([Row([Field(False), Field(False), Field(False)]),
                         Row([Field(False), Field(False), Field(False)]),
-                        Row([Field(True),  Field(True),  Field(True)]),
-                        Row([Field(True),  Field(False), Field(False)])
+                        Row([Field(True), Field(True), Field(True)]),
+                        Row([Field(True), Field(False), Field(False)])
                         ])
 
-    fourth_rotate = Box([Row([Field(True),  Field(True), Field(False)]),
+    fourth_rotate = Box([Row([Field(True), Field(True), Field(False)]),
                          Row([Field(False), Field(True), Field(False)]),
                          Row([Field(False), Field(True), Field(False)])
                          ])

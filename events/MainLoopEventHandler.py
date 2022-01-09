@@ -4,15 +4,17 @@ import pygame.event
 import Shape.Move.CollisionDetector as CollisionDetector
 
 from Shape.Move.ShapeMove import move_down, move_left, move_right, rotate, move_up
+from Shape.Shape import Shape
 from db.history_record.HistoryRecord import HistoryRecord
 from db.history_record.HistoryRecordRepository import save
+from model.Board import Board
 
 FALLING_EVENT = pygame.USEREVENT + 1
 GAME_OVER_EVENT = pygame.USEREVENT + 2
 SPEED_UP_EVENT = pygame.USEREVENT + 3
 
 
-def handle_events(shape, board):
+def handle_events(shape: Shape, board: Board) -> bool:
     for event in pygame.event.get():
         if event.type == SPEED_UP_EVENT:
             speed = board.get_speed()
@@ -32,7 +34,7 @@ def handle_events(shape, board):
     return True
 
 
-def handle_keyboard_press(event, shape, board):
+def handle_keyboard_press(event: pygame.event.Event, shape: Shape, board: Board) -> None:
     if event.key == pygame.K_LEFT:
         move_left(shape)
         if CollisionDetector.check_for_collision(shape, board.get_all_squares_to_check()):
@@ -49,7 +51,7 @@ def handle_keyboard_press(event, shape, board):
             shape.previous_rotation()
 
 
-def handle_falling(shape, board):
+def handle_falling(shape: Shape, board: Board) -> None:
     move_down(shape)
     queue = board.get_queue()
     if CollisionDetector.check_for_collision(shape, board.get_all_squares_to_check()):
@@ -61,7 +63,7 @@ def handle_falling(shape, board):
         check_for_game_over(board)
 
 
-def check_for_game_over(board):
+def check_for_game_over(board: Board) -> None:
     queue = board.get_queue()
     current = queue.get_current()
     if CollisionDetector.check_for_collision(current, board.get_all_squares_to_check()):

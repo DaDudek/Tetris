@@ -1,12 +1,17 @@
+from typing import Iterable
+
 import pygame
 
 from Shape.Move.ShadowMove import shadow_move
 from color.ColorService import get_shadow, get_black
+from db.history_record.HistoryRecord import HistoryRecord
 from gameSettings.QueueCoordinateConstants import *
+from model.Board import Board
 from model.Point import Point
+from model.Square import Square
 
 
-def draw_board(board, surface, history):
+def draw_board(board: Board, surface: pygame.Surface, history: Iterable[HistoryRecord]) -> None:
     draw_shadow(board, surface)
 
     draw_background(surface)
@@ -20,27 +25,27 @@ def draw_board(board, surface, history):
     draw_top_ten(history, surface)
 
 
-def draw_stacked_shapes(board, surface):
+def draw_stacked_shapes(board: Board, surface: pygame.Surface) -> None:
     draw_squares(board.get_squares(), surface)
 
 
-def draw_current_shape(board, surface):
+def draw_current_shape(board: Board, surface: pygame.Surface) -> None:
     current_shape = board.get_queue().get_current()
-    draw_squares(current_shape.get_squares(), surface)  # current
+    draw_squares(current_shape.get_squares(), surface)
 
 
-def draw_square(square, surface):
+def draw_square(square: Square, surface: pygame.Surface) -> None:
     pygame.draw.rect(surface, square.get_color(), pygame.Rect(square.getX(),
                                                               square.getY(),
                                                               SQUARE_SIZE, SQUARE_SIZE))
 
 
-def draw_squares(squares, surface):
+def draw_squares(squares: Iterable[Square], surface: pygame.Surface) -> None:
     for square in squares:
         draw_square(square, surface)
 
 
-def draw_background(surface):
+def draw_background(surface: pygame.Surface) -> None:
     for i in range(NUMBER_OF_ROWS):
         for j in range(NUMBER_OF_SQUARES_IN_ROW):
             init_x = j * SQUARE_SIZE
@@ -50,10 +55,10 @@ def draw_background(surface):
                              (init_x + SQUARE_SIZE, init_y + SQUARE_SIZE),
                              (init_x, init_y + SQUARE_SIZE))
             border_thickness = 1
-            pygame.draw.lines(surface, (0, 0, 0), True, (border_coords), border_thickness)
+            pygame.draw.lines(surface, (0, 0, 0), True, border_coords, border_thickness)
 
 
-def draw_queue(board, surface):
+def draw_queue(board: Board, surface: pygame.Surface) -> None:
     for i in range(3):
         shape = board.get_queue().get_by_position(i + 1)
         previous_coordinate = shape.get_coordinate()
@@ -62,7 +67,7 @@ def draw_queue(board, surface):
         shape.set_coordinate(previous_coordinate)
 
 
-def draw_shadow(board, surface):
+def draw_shadow(board: Board, surface: pygame.Surface):
     current_shape = board.get_queue().get_current()
     squares = board.get_all_squares_to_check()
     shadow_shape = shadow_move(current_shape, squares)
@@ -72,7 +77,7 @@ def draw_shadow(board, surface):
     draw_squares(shadow_squares, surface)
 
 
-def draw_top_ten(history, surface):
+def draw_top_ten(history: Iterable[HistoryRecord], surface: pygame.Surface):
     myfont = pygame.font.SysFont('verdana', 20)
     counter = 0
     for record in history:
