@@ -63,7 +63,7 @@ def main_game_loop(player_name):
     board = Board(queue, score, speed)
     while is_running:
         shape = queue.get_current()
-        handle_events(shape, board)
+        is_running = handle_events(shape, board)
         window_surface.blit(background, (0, 0))
         window_surface.blit(textsurface, (30 * 12, 0))
 
@@ -77,3 +77,6 @@ def main_game_loop(player_name):
 
 player_name = init_screen_loop()
 main_game_loop(player_name)
+
+
+

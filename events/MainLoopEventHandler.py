@@ -5,6 +5,8 @@ import Shape.Move.CollisionDetector as CollisionDetector
 
 
 from Shape.Move.ShapeMove import move_down, move_left, move_right, rotate, move_up
+from db.history_record.HistoryRecord import HistoryRecord
+from db.history_record.HistoryRecordRepository import save
 
 FALLING_EVENT = pygame.USEREVENT + 1
 GAME_OVER_EVENT = pygame.USEREVENT + 2
@@ -24,8 +26,11 @@ def handle_events(shape, board):
         if event.type == pygame.KEYDOWN:
             handle_keyboard_press(event, shape, board)
         if event.type == GAME_OVER_EVENT:
-            print("GAME OVER")
-            sys.exit()
+            history_record = HistoryRecord(points=board.get_score().get_points(),
+                                           player_name=board.get_score().get_name())
+            save(history_record)
+            return False
+    return True
 
 def handle_keyboard_press(event, shape, board):
     if event.key == pygame.K_LEFT:
