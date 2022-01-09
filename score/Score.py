@@ -1,4 +1,4 @@
-from gameSettings.SizeConstants import *
+from gameSettings.PointsConstants import *
 from score.ScoreBonusCalculator import add_points_for_speed, add_points_for_row_numbers
 
 
