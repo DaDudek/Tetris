@@ -49,7 +49,7 @@ def init_screen_loop():
 
 def main_game_loop(player_name):
     next_message_font = pygame.font.SysFont(FONT_NAME, MAIN_LOOP_NEXT_FONT_SIZE)
-    next_message_surface = next_message_font.render("Next", True,  get_black())
+    next_message_surface = next_message_font.render("Next", True,  get_black().get_color())
 
     is_running = True
     queue = ShapeQueue()
