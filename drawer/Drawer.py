@@ -1,12 +1,12 @@
 import pygame
 
 from Shape.Move.ShadowMove import shadow_move
-from color.ColorService import get_shadow
+from color.ColorService import get_shadow, get_black
 from gameSettings.SizeConstants import *
 from model.Point import Point
 
 
-def draw_board(board, surface):
+def draw_board(board, surface, history):
     draw_shadow(board, surface)
 
     draw_background(surface)
@@ -17,13 +17,15 @@ def draw_board(board, surface):
 
     draw_queue(board, surface)
 
+    draw_top_ten(history, surface)
+
 def draw_stacked_shapes(board, surface):
     draw_squares(board.get_squares(), surface)
 
+
 def draw_current_shape(board, surface):
     current_shape = board.get_queue().get_current()
-    draw_squares(current_shape.get_squares(), surface) # current
-
+    draw_squares(current_shape.get_squares(), surface)  # current
 
 
 def draw_square(square, surface):
@@ -58,11 +60,22 @@ def draw_queue(board, surface):
         draw_squares(shape.get_squares(), surface)
         shape.set_coordinate(previous_coordinate)
 
+
 def draw_shadow(board, surface):
     current_shape = board.get_queue().get_current()
     squares = board.get_all_squares_to_check()
     shadow_shape = shadow_move(current_shape, squares)
     shadow_squares = shadow_shape.get_squares()
     for square in shadow_squares:
-        square.set_color(get_shadow().get_color()) #think how to do it different
+        square.set_color(get_shadow().get_color())  # think how to do it different
     draw_squares(shadow_squares, surface)
+
+
+def draw_top_ten(history, surface):
+    myfont = pygame.font.SysFont('verdana', 20)
+    counter = 0
+    for record in history:
+        score_text_surface = myfont.render(f"{counter+1}. {record.get_player_name()} {record.get_points()}",
+                                               True, get_black().get_color())
+        surface.blit(score_text_surface, (30 * 11, 400 + (30 * counter )))
+        counter += 1
