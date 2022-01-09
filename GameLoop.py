@@ -7,6 +7,7 @@ from Speed.Speed import Speed
 from model.Board import Board
 from score.Score import Score
 from gameSettings.SizeConstants import *
+from gameSettings.FontConstants import *
 
 pygame.init()
 
@@ -19,8 +20,8 @@ background.fill(get_white().get_color())
 
 def init_screen_loop():
     run = True
-    font = pygame.font.SysFont("verdana", 45)
-    font2 = pygame.font.SysFont("verdana", 20)
+    player_name_font = pygame.font.SysFont(FONT_NAME, INIT_SCREEN_PLAYER_NAME_FONT_SIZE)
+    game_message_font = pygame.font.SysFont(FONT_NAME, INIT_SCREEN_GAME_MESSAGE_FONT_SIZE)
     text = ""
     while run:
         for event in pygame.event.get():
@@ -37,23 +38,23 @@ def init_screen_loop():
             window_surface.fill(get_white().get_color())
             background.fill(get_white().get_color())
 
-            player_text_surf = font.render(text, True, get_black().get_color())
-            message_text_surf = font2.render("PASS THE NAME AND CLICK ENTER", True, get_black().get_color())
+            player_text_surf = player_name_font.render(text, True, get_black().get_color())
+            message_text_surf = game_message_font.render("PASS THE NAME AND CLICK ENTER", True, get_black().get_color())
 
             window_surface.blit(player_text_surf, player_text_surf.get_rect(center=window_surface.get_rect().center))
-            window_surface.blit(message_text_surf, (80, 300))
+            window_surface.blit(message_text_surf, (80, 300)) # TODO CHANGE IT
             pygame.display.flip()
     return text
 
 
 def main_game_loop(player_name):
-    myfont = pygame.font.SysFont("verdana", 60)
-    textsurface = myfont.render("Next", True, (0, 0, 0))
+    next_message_font = pygame.font.SysFont(FONT_NAME, MAIN_LOOP_NEXT_FONT_SIZE)
+    next_message_surface = next_message_font.render("Next", True,  get_black())
 
     is_running = True
     queue = ShapeQueue()
 
-    score_font = pygame.font.SysFont("verdana", 25)
+    score_font = pygame.font.SysFont(FONT_NAME, MAIN_LOOP_SCORE_FONT_SIZE)
 
     speed = Speed()
     score = Score(player_name, speed)
@@ -66,11 +67,11 @@ def main_game_loop(player_name):
         shape = queue.get_current()
         is_running = handle_events(shape, board)
         window_surface.blit(background, (0, 0))
-        window_surface.blit(textsurface, (30 * 11.5, 0))
+        window_surface.blit(next_message_surface, (30 * 11.5, 0))  # TODO change it
 
         score_text_surface = score_font.render("Score: " + str(board.get_score().get_points()),
                                                True, get_black().get_color())
-        window_surface.blit(score_text_surface, (30 * 11, 360))
+        window_surface.blit(score_text_surface, (30 * 11, 360)) # TODO change it
         background.fill(get_white().get_color())
         draw_board(board, background, get_top_ten())
         pygame.display.flip()
@@ -78,8 +79,8 @@ def main_game_loop(player_name):
 
 def game_over_loop(score):
     run = True
-    font = pygame.font.SysFont("verdana", 45)
-    font2 = pygame.font.SysFont("verdana", 20)
+    score_font = pygame.font.SysFont(FONT_NAME, GAME_OVER_SCREEN_SCORE_FONT_SIZE)
+    game_message_font = pygame.font.SysFont(FONT_NAME, GAME_OVER_MESSAGE_FONT_SIZE)
     text = ""
     while run:
         for event in pygame.event.get():
@@ -88,11 +89,11 @@ def game_over_loop(score):
         window_surface.fill(get_white().get_color())
         background.fill(get_white().get_color())
 
-        message_text_surf = font2.render("GAME OVER, PRESS ANY BUTTON TO LEAVE", True, get_black().get_color())
-        player_text_surf = font.render(f"YOUR SCORE: {score}", True, get_black().get_color())
+        message_text_surf = game_message_font.render("GAME OVER, PRESS ANY BUTTON TO LEAVE", True, get_black().get_color())
+        player_text_surf = score_font.render(f"YOUR SCORE: {score}", True, get_black().get_color())
         window_surface.blit(player_text_surf, player_text_surf.get_rect(center=window_surface.get_rect().center))
 
-        window_surface.blit(message_text_surf, (35, 300))
+        window_surface.blit(message_text_surf, (35, 300))  # TODO: CHANGE IT
         pygame.display.flip()
     return text
 
