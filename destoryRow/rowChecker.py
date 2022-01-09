@@ -4,6 +4,7 @@ from Shape.Move.ShapeMove import move_board_part_down
 
 def checkForRemove(board):
     something_was_removed = True
+    number_of_removed_rows = 0
     while something_was_removed:
         something_was_removed = False
         if not board.get_squares():
@@ -28,4 +29,5 @@ def checkForRemove(board):
             board.remove_all_from_list(possible_needed_to_be_removed)
             board.add_point_for_row()
             move_board_part_down(board, checked_squares)
-
+            number_of_removed_rows += 1
+    board.get_score().add_points_for_row_bonus(number_of_removed_rows)

@@ -1,9 +1,9 @@
 from Shape.ShapeQueue import ShapeQueue
-from Drawer import draw_board
+from drawer.Drawer import draw_board
 from EventHandler import *
 from Speed.Speed import Speed
 from model.Board import Board
-from model.Score import Score
+from score.Score import Score
 
 pygame.init()
 
@@ -19,11 +19,12 @@ textsurface = myfont.render("Next", False, (0, 0, 0))
 
 is_running = True
 queue = ShapeQueue()
-score = Score("Dawid")
 
 score_font = pygame.font.SysFont("Comic Sans MS", 40)
 
 speed = Speed()
+score = Score("Dawid", speed)
+
 pygame.time.set_timer(FALLING_EVENT,  speed.speed_falling)
 pygame.time.set_timer(SPEED_UP_EVENT, speed.falling_speed_up_interval)
 
