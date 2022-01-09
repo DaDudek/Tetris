@@ -1,4 +1,4 @@
-from gameSettings.SizeConstants import *
+from gameSettings.SpeedFallingConstants import *
 
 
 class Speed:

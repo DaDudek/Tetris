@@ -2,7 +2,7 @@ import pygame
 
 from Shape.Move.ShadowMove import shadow_move
 from color.ColorService import get_shadow, get_black
-from gameSettings.SizeConstants import *
+from gameSettings.QueueCoordinateConstants import *
 from model.Point import Point
 
 
