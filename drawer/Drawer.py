@@ -19,6 +19,7 @@ def draw_board(board, surface, history):
 
     draw_top_ten(history, surface)
 
+
 def draw_stacked_shapes(board, surface):
     draw_squares(board.get_squares(), surface)
 
@@ -75,7 +76,7 @@ def draw_top_ten(history, surface):
     myfont = pygame.font.SysFont('verdana', 20)
     counter = 0
     for record in history:
-        score_text_surface = myfont.render(f"{counter+1}. {record.get_player_name()} {record.get_points()}",
-                                               True, get_black().get_color())
-        surface.blit(score_text_surface, (30 * 11, 400 + (30 * counter )))
+        score_text_surface = myfont.render(f"{counter + 1}. {record.get_player_name()} {record.get_points()}",
+                                           True, get_black().get_color())
+        surface.blit(score_text_surface, (30 * 11, 400 + (30 * counter)))
         counter += 1

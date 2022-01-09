@@ -1,6 +1,7 @@
 from ShapeTemplate.ShapeTemplateConstructor import LongShapeConstructor, ReverseLShapeConstructor, LShapeConstructor, \
     SquareShapeConstructor, ReverseZShapeConstructor, ZShapeConstructor, TShapeConstructor
 
+
 def construct_by_id(id):
     if id == 0:
         return construct_long_shape()
@@ -16,6 +17,7 @@ def construct_by_id(id):
         return construct_z_shape()
     if id == 6:
         return construct_t_shape()
+
 
 def construct_long_shape():
     return LongShapeConstructor.construct()

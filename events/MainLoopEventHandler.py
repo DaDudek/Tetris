@@ -3,7 +3,6 @@ import sys
 import pygame.event
 import Shape.Move.CollisionDetector as CollisionDetector
 
-
 from Shape.Move.ShapeMove import move_down, move_left, move_right, rotate, move_up
 from db.history_record.HistoryRecord import HistoryRecord
 from db.history_record.HistoryRecordRepository import save
@@ -31,6 +30,7 @@ def handle_events(shape, board):
             save(history_record)
             return False
     return True
+
 
 def handle_keyboard_press(event, shape, board):
     if event.key == pygame.K_LEFT:

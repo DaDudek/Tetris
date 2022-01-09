@@ -6,20 +6,25 @@ def move_down(shape):
     shape.set_coordinate(Point(shape.get_coordinate().getX(),
                                shape.get_coordinate().getY() + SQUARE_SIZE))
 
+
 def move_left(shape):
     shape.set_coordinate(Point(shape.get_coordinate().getX() - SQUARE_SIZE,
                                shape.get_coordinate().getY()))
+
 
 def move_right(shape):
     shape.set_coordinate(Point(shape.get_coordinate().getX() + SQUARE_SIZE,
                                shape.get_coordinate().getY()))
 
+
 def rotate(shape):
     shape.next_rotation()
+
 
 def move_up(shape):
     shape.set_coordinate(Point(shape.get_coordinate().getX(),
                                shape.get_coordinate().getY() - SQUARE_SIZE))
+
 
 def move_square_down(square):
     square.setY(square.getY() + SQUARE_SIZE)
@@ -29,4 +34,3 @@ def move_board_part_down(board, square_to_move):
     for square in board.get_squares():
         if square in square_to_move:
             move_square_down(square)
-

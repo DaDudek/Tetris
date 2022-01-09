@@ -24,11 +24,13 @@ class HistoryRecord(Base):
     def __str__(self):
         return f"{self.player_name} {self.points}"
 
+
 Base.metadata.create_all(engine)
 
 Session = sessionmaker(bind=engine)
 
 session = Session()
+
 
 def get_session():
     return session

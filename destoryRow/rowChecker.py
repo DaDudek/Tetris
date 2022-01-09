@@ -2,7 +2,7 @@ from gameSettings.SizeConstants import *
 from Shape.Move.ShapeMove import move_board_part_down
 
 
-def checkForRemove(board):
+def check_for_remove(board):
     something_was_removed = True
     number_of_removed_rows = 0
     while something_was_removed:
