@@ -31,7 +31,7 @@ def draw_current_shape(board, surface):
 def draw_square(square, surface):
     pygame.draw.rect(surface, square.get_color(), pygame.Rect(square.getX(),
                                                               square.getY(),
-                                                              INIT_SQUARE_SIZE, INIT_SQUARE_SIZE))
+                                                              SQUARE_SIZE, SQUARE_SIZE))
 
 
 def draw_squares(squares, surface):
@@ -42,12 +42,12 @@ def draw_squares(squares, surface):
 def draw_background(surface):
     for i in range(NUMBER_OF_ROWS):
         for j in range(NUMBER_OF_SQUARES_IN_ROW):
-            init_x = j * INIT_SQUARE_SIZE
-            init_y = i * INIT_SQUARE_SIZE
+            init_x = j * SQUARE_SIZE
+            init_y = i * SQUARE_SIZE
             border_coords = ((init_x, init_y),
-                             (init_x + INIT_SQUARE_SIZE, init_y),
-                             (init_x + INIT_SQUARE_SIZE, init_y + INIT_SQUARE_SIZE),
-                             (init_x, init_y + INIT_SQUARE_SIZE))
+                             (init_x + SQUARE_SIZE, init_y),
+                             (init_x + SQUARE_SIZE, init_y + SQUARE_SIZE),
+                             (init_x, init_y + SQUARE_SIZE))
             border_thickness = 1
             pygame.draw.lines(surface, (0, 0, 0), True, (border_coords), border_thickness)
 

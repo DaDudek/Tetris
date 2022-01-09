@@ -35,15 +35,15 @@ class Board:
     # this method add some invisible squares to easier detect colision with wall/floor
         squares = []
         for i in range(NUMBER_OF_SQUARES_IN_ROW):
-            squares.append(Square(Point(i * INIT_SQUARE_SIZE,
-                                 INIT_HIGHT),
+            squares.append(Square(Point(i * SQUARE_SIZE,
+                                        GAME_SCREEN_HIGHT),
                                   None))
         for i in range(NUMBER_OF_ROWS):
-            squares.append(Square(Point(-INIT_SQUARE_SIZE,
-                                        i*INIT_SQUARE_SIZE),
+            squares.append(Square(Point(-SQUARE_SIZE,
+                                        i * SQUARE_SIZE),
                                   None))
-            squares.append(Square(Point(INIT_WIGHT,
-                                        i * INIT_SQUARE_SIZE),
+            squares.append(Square(Point(BOARD_WIGHT,
+                                        i * SQUARE_SIZE),
                                   None))
 
         return squares

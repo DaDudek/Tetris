@@ -12,9 +12,9 @@ from gameSettings.FontConstants import *
 pygame.init()
 
 pygame.display.set_caption('Tetris')
-window_surface = pygame.display.set_mode((INIT_SQUARE_SIZE * INIT_GAME_WIGHT, INIT_HIGHT))
+window_surface = pygame.display.set_mode((GAME_SCREEN_WIGHT, GAME_SCREEN_HIGHT))
 
-background = pygame.Surface((INIT_SQUARE_SIZE * INIT_GAME_WIGHT, INIT_HIGHT))
+background = pygame.Surface((GAME_SCREEN_WIGHT, GAME_SCREEN_HIGHT))
 background.fill(get_white().get_color())
 
 

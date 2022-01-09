@@ -4,7 +4,7 @@ from model.Square import Square
 
 
 class Shape:
-    def __init__(self, shapeTemplate, actualRotation=0, upper_left_square=Point(INIT_WIGHT /2, 0)):
+    def __init__(self, shapeTemplate, actualRotation=0, upper_left_square=Point(BOARD_WIGHT / 2, 0)):
         self.upper_left_square = upper_left_square
         self.actualRotation = actualRotation
         self.shapeTemplate = shapeTemplate  # shape template
@@ -50,7 +50,7 @@ class Shape:
         return squares
 
     def count_X_coordinate(self, field_number):
-        return self.get_coordinate().getX() + (INIT_SQUARE_SIZE * field_number)
+        return self.get_coordinate().getX() + (SQUARE_SIZE * field_number)
 
     def count_Y_coordinate(self, row_number):
-        return self.get_coordinate().getY() + (INIT_SQUARE_SIZE * row_number)
+        return self.get_coordinate().getY() + (SQUARE_SIZE * row_number)
