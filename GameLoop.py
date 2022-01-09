@@ -8,6 +8,7 @@ from model.Board import Board
 from score.Score import Score
 from gameSettings.SizeConstants import *
 from gameSettings.FontConstants import *
+from gameSettings.BoardCoordinateConstants import *
 
 pygame.init()
 
@@ -42,7 +43,8 @@ def init_screen_loop():
             message_text_surf = game_message_font.render("PASS THE NAME AND CLICK ENTER", True, get_black().get_color())
 
             window_surface.blit(player_text_surf, player_text_surf.get_rect(center=window_surface.get_rect().center))
-            window_surface.blit(message_text_surf, (80, 300)) # TODO CHANGE IT
+            window_surface.blit(message_text_surf, (INIT_SCREEN_GAME_MESSAGE_X_COORDINATE,
+                                                    INIT_SCREEN_GAME_MESSAGE_Y_COORDINATE))
             pygame.display.flip()
     return text
 
@@ -67,11 +69,13 @@ def main_game_loop(player_name):
         shape = queue.get_current()
         is_running = handle_events(shape, board)
         window_surface.blit(background, (0, 0))
-        window_surface.blit(next_message_surface, (30 * 11.5, 0))  # TODO change it
+        window_surface.blit(next_message_surface, (MAIN_LOOP_NEXT_MESSAGE_X_COORDINATE,
+                                                   MAIN_LOOP_NEXT_MESSAGE_Y_COORDINATE))
 
         score_text_surface = score_font.render("Score: " + str(board.get_score().get_points()),
                                                True, get_black().get_color())
-        window_surface.blit(score_text_surface, (30 * 11, 360)) # TODO change it
+        window_surface.blit(score_text_surface, (MAIN_LOOP_SCORE_MESSAGE_X_COORDINATE,
+                                                 MAIN_LOOP_SCORE_MESSAGE_Y_COORDINATE))
         background.fill(get_white().get_color())
         draw_board(board, background, get_top_ten())
         pygame.display.flip()
@@ -93,7 +97,8 @@ def game_over_loop(score):
         player_text_surf = score_font.render(f"YOUR SCORE: {score}", True, get_black().get_color())
         window_surface.blit(player_text_surf, player_text_surf.get_rect(center=window_surface.get_rect().center))
 
-        window_surface.blit(message_text_surf, (35, 300))  # TODO: CHANGE IT
+        window_surface.blit(message_text_surf, (GAME_OVER_SCREEN_MESSAGE_X_COORDINATE,
+                                                GAME_OVER_SCREEN_MESSAGE_Y_COORDINATE))
         pygame.display.flip()
     return text
 
