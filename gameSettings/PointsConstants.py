@@ -1,4 +1,0 @@
-from gameSettings.SizeConstants import *
-
-POINTS_FOR_SQUARE = 1
-POINTS_FOR_ROW = POINTS_FOR_SQUARE * NUMBER_OF_SQUARES_IN_ROW
