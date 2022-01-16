@@ -7,6 +7,13 @@ from src.model.Square import Square
 
 
 def shadow_move(shape: Shape, squares: Iterable[Square]) -> Shape:
+    """
+    this function it's used to check where square will fall.
+    thanks to this we can draw this place to prepare player for this.
+    :param shape:
+    :param squares:
+    :return:
+    """
     shadow_shape = Shape(shape.get_template(), shape.get_rotation_number(), shape.get_coordinate())
     while not CollisionDetector.check_for_collision(shadow_shape, squares):
         move_down(shadow_shape)

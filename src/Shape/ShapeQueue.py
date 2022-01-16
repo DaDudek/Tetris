@@ -13,12 +13,17 @@ class ShapeQueue:
             self.add_random_to_queue()
 
     def get_current(self) -> Shape:
-        return self.queue[0]
+        return self.get_by_position(0)
 
     def add_to_queue(self, shape: Shape) -> None:
         self.queue.append(shape)
 
     def add_random_to_queue(self) -> None:
+        """
+        this function adding random shape to queue - its make game more unpredictable
+        new shape must be other than previous one.
+        :return:
+        """
         self.choose_different_then_previous()
         random_template = construct_by_id(self.last_index)
         self.add_to_queue(Shape(random_template))
@@ -35,4 +40,9 @@ class ShapeQueue:
         self.last_index = random_id
 
     def get_by_position(self, position) -> Shape:
+        """
+        return element from queue that's stay on given position
+        :param position:
+        :return:
+        """
         return self.queue[position]

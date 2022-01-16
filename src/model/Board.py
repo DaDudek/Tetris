@@ -11,7 +11,12 @@ from src.score.Score import Score
 
 
 def get_invisible_squares() -> List[Square]:
-    # this method add some invisible squares to easier detect collision with wall/floor
+    """
+    a board is rounded with invisible squares from bottom and
+    left and right side. Because of that it's easier to detect
+    collision and block penetrate through wall/floor.
+    :return:
+    """
     squares = []
     for i in range(NUMBER_OF_SQUARES_IN_ROW):
         squares.append(Square(Point(i * SQUARE_SIZE,

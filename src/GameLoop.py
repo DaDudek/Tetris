@@ -21,6 +21,11 @@ background.fill(get_white().get_color())
 
 
 def init_screen_loop() -> str:
+    """
+    this function it's used to open initial screen where user put his name and pass this name to main loop
+
+    :return: user's name
+    """
     run = True
     player_name_font = pygame.font.SysFont(FONT_NAME, INIT_SCREEN_PLAYER_NAME_FONT_SIZE)
     game_message_font = pygame.font.SysFont(FONT_NAME, INIT_SCREEN_GAME_MESSAGE_FONT_SIZE)
@@ -51,6 +56,12 @@ def init_screen_loop() -> str:
 
 
 def main_game_loop(name: str) -> int:
+    """
+    this function handle main game loop - the loop runs as long as each column is not filled with blocks.
+    It is responsible for the correct refreshing of the game screen, i.e. the state of the board and blocks
+    :param name: user's name
+    :return:
+    """
     next_message_font = pygame.font.SysFont(FONT_NAME, MAIN_LOOP_NEXT_FONT_SIZE)
     next_message_surface = next_message_font.render("Next", True, get_black().get_color())
 
@@ -84,6 +95,12 @@ def main_game_loop(name: str) -> int:
 
 
 def game_over_loop(points: int) -> None:
+    """
+    this loop handle game_over function -> it's displaying user's final score and wait for some
+    key pressed to end program
+    :param points:
+    :return:
+    """
     run = True
     score_font = pygame.font.SysFont(FONT_NAME, GAME_OVER_SCREEN_SCORE_FONT_SIZE)
     game_message_font = pygame.font.SysFont(FONT_NAME, GAME_OVER_MESSAGE_FONT_SIZE)
