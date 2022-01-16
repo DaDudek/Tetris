@@ -4,7 +4,8 @@ from src.Shape.Move.ShapeMove import move_board_part_down
 
 def check_for_remove(board) -> None:
     """
-    This method checking what squares should be removed because they fill entire row. After this it added points
+    This method checking what squares should be removed
+    because they fill entire row. After this it added points
     to user score. It should be called always after shape fall down.
     :param board:
     :return:

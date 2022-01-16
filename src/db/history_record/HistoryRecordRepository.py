@@ -16,7 +16,9 @@ def save(historyRecord: HistoryRecord) -> None:
 
 def get_top_ten() -> Iterable[HistoryRecord]:
     records = get_all()
-    records = sorted(records, key=lambda record: (record.get_points(), record.get_player_name()), reverse=True)
+    records = sorted(records,
+                     key=lambda r: (r.get_points(), r.get_player_name()),
+                     reverse=True)
     while len(records) < 10:
         records.append(HistoryRecord(points=0,
                                      player_name=""))

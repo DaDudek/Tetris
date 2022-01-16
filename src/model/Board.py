@@ -66,7 +66,8 @@ class Board:
     def add_shape(self, shape: Shape) -> None:
         for square in shape.get_squares():
             self.stacked_squares.append(square)
-        self.stacked_squares = sorted(self.stacked_squares, key=lambda point: (point.getY(), point.getX()))
+        self.stacked_squares = sorted(self.stacked_squares,
+                                      key=lambda p: (p.getY(), p.getX()))
         check_for_remove(self)
 
     def remove_all_from_list(self, squares: List[Square]) -> None:

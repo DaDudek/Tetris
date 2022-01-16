@@ -1,6 +1,8 @@
 from src.ShapeTemplate.ShapeTemplate import ShapeTemplate
-from src.ShapeTemplate.ShapeTemplateConstructor import TShapeConstructor, SquareShapeConstructor, LongShapeConstructor, \
-    ZShapeConstructor, ReverseLShapeConstructor, LShapeConstructor, ReverseZShapeConstructor
+from src.ShapeTemplate.ShapeTemplateConstructor import TShapeConstructor,\
+    SquareShapeConstructor, LongShapeConstructor, \
+    ZShapeConstructor, ReverseLShapeConstructor,\
+    LShapeConstructor, ReverseZShapeConstructor
 
 
 def construct_by_id(id: int) -> ShapeTemplate:

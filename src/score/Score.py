@@ -1,7 +1,8 @@
 from src.Shape.Shape import Shape
 from src.Speed.Speed import Speed
 from src.gameSettings.PointsConstants import *
-from src.score.ScoreBonusCalculator import add_points_for_speed, add_points_for_row_numbers
+from src.score.ScoreBonusCalculator import add_points_for_speed,\
+    add_points_for_row_numbers
 
 
 class Score:

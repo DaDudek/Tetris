@@ -14,4 +14,3 @@ class Point:
 
     def setY(self, y: int) -> None:
         self.y = y
-

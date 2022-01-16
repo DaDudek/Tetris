@@ -14,7 +14,9 @@ def shadow_move(shape: Shape, squares: Iterable[Square]) -> Shape:
     :param squares:
     :return:
     """
-    shadow_shape = Shape(shape.get_template(), shape.get_rotation_number(), shape.get_coordinate())
+    shadow_shape = Shape(shape.get_template(),
+                         shape.get_rotation_number(),
+                         shape.get_coordinate())
     while not CollisionDetector.check_for_collision(shadow_shape, squares):
         move_down(shadow_shape)
     move_up(shadow_shape)

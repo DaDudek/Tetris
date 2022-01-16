@@ -1,7 +1,8 @@
 from typing import List
 
 from src.Shape.Shape import Shape
-from src.ShapeTemplate.ShapeTemplateConstructor.ShapeTemplateConstructor import construct_by_id
+from src.ShapeTemplate.ShapeTemplateConstructor.ShapeTemplateConstructor \
+    import construct_by_id
 import random
 
 
@@ -20,7 +21,8 @@ class ShapeQueue:
 
     def add_random_to_queue(self) -> None:
         """
-        this function adding random shape to queue - its make game more unpredictable
+        this function adding random shape to queue
+        - its make game more unpredictable
         new shape must be other than previous one.
         :return:
         """

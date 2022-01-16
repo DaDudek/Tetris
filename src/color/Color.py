@@ -18,4 +18,3 @@ class Color:
 
     def get_color(self) -> Tuple[int, int, int]:
         return self.red, self.green, self.blue
-

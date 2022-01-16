@@ -29,7 +29,8 @@ class Speed:
 
     def speed_up(self) -> None:
         """
-        this function increase game speed to maximal game speed (to avoid unplayable speed)
+        this function increase game speed
+        to maximal game speed (to avoid unplayable speed)
         :return:
         """
         self.speed_falling -= self.speed_falling_increase

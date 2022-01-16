@@ -26,5 +26,8 @@ def construct() -> ShapeTemplate:
                          Row([Field(True),  Field(False), Field(False)]),
                          ])
 
-    return ShapeTemplate([first_rotate, second_rotate, third_rotate, fourth_rotate],
+    return ShapeTemplate([first_rotate,
+                          second_rotate,
+                          third_rotate,
+                          fourth_rotate],
                          src.color.ColorService.get_red())
