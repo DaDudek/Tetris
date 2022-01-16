@@ -94,7 +94,8 @@ class Board:
     def add_shape(self, shape: Shape) -&gt; None:
         for square in shape.get_squares():
             self.stacked_squares.append(square)
-        self.stacked_squares = sorted(self.stacked_squares, key=lambda point: (point.getY(), point.getX()))
+        self.stacked_squares = sorted(self.stacked_squares,
+                                      key=lambda p: (p.getY(), p.getX()))
         check_for_remove(self)
 
     def remove_all_from_list(self, squares: List[Square]) -&gt; None:
@@ -193,7 +194,8 @@ collision and block penetrate through wall/floor.
     def add_shape(self, shape: Shape) -&gt; None:
         for square in shape.get_squares():
             self.stacked_squares.append(square)
-        self.stacked_squares = sorted(self.stacked_squares, key=lambda point: (point.getY(), point.getX()))
+        self.stacked_squares = sorted(self.stacked_squares,
+                                      key=lambda p: (p.getY(), p.getX()))
         check_for_remove(self)
 
     def remove_all_from_list(self, squares: List[Square]) -&gt; None:
@@ -241,7 +243,8 @@ collision and block penetrate through wall/floor.
 <pre><code class="python">def add_shape(self, shape: Shape) -&gt; None:
     for square in shape.get_squares():
         self.stacked_squares.append(square)
-    self.stacked_squares = sorted(self.stacked_squares, key=lambda point: (point.getY(), point.getX()))
+    self.stacked_squares = sorted(self.stacked_squares,
+                                  key=lambda p: (p.getY(), p.getX()))
     check_for_remove(self)</code></pre>
 </details>
 </dd>

@@ -34,14 +34,16 @@ from src.model.Square import Square
 
 def check_for_collision(shape: Shape, squares: Iterable[Square]) -&gt; bool:
     &#34;&#34;&#34;
-    Simple checking is any square of shape its on the same position as any element of board
+    Simple checking is any square of shape its
+    on the same position as any element of board
     :param shape:
     :param squares:
     :return:
     &#34;&#34;&#34;
     for square in shape.get_squares():
         for stacked_square in squares:
-            if square.getY() == stacked_square.getY() and square.getX() == stacked_square.getX():
+            if square.getY() == stacked_square.getY() \
+                    and square.getX() == stacked_square.getX():
                 return True
     return False</code></pre>
 </details>
@@ -57,7 +59,8 @@ def check_for_collision(shape: Shape, squares: Iterable[Square]) -&gt; bool:
 <span>def <span class="ident">check_for_collision</span></span>(<span>shape: src.Shape.Shape.Shape, squares: Iterable[src.model.Square.Square]) ‑> bool</span>
 </code></dt>
 <dd>
-<div class="desc"><p>Simple checking is any square of shape its on the same position as any element of board
+<div class="desc"><p>Simple checking is any square of shape its
+on the same position as any element of board
 :param shape:
 :param squares:
 :return:</p></div>
@@ -67,14 +70,16 @@ def check_for_collision(shape: Shape, squares: Iterable[Square]) -&gt; bool:
 </summary>
 <pre><code class="python">def check_for_collision(shape: Shape, squares: Iterable[Square]) -&gt; bool:
     &#34;&#34;&#34;
-    Simple checking is any square of shape its on the same position as any element of board
+    Simple checking is any square of shape its
+    on the same position as any element of board
     :param shape:
     :param squares:
     :return:
     &#34;&#34;&#34;
     for square in shape.get_squares():
         for stacked_square in squares:
-            if square.getY() == stacked_square.getY() and square.getX() == stacked_square.getX():
+            if square.getY() == stacked_square.getY() \
+                    and square.getX() == stacked_square.getX():
                 return True
     return False</code></pre>
 </details>

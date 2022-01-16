@@ -33,7 +33,7 @@ from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
 
 Base = declarative_base()
-engine = create_engine(&#34;sqlite:///main.db&#34;, echo=False)  # change for true to have logs
+engine = create_engine(&#34;sqlite:///main.db&#34;, echo=False)
 
 
 class HistoryRecord(Base):

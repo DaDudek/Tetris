@@ -34,8 +34,8 @@ def add_points_for_speed(speed: Speed) -&gt; int:
     return speed.get_number_of_increases() * SPEED_FALLING_BONUS
 
 
-def add_points_for_row_numbers(number_of_destroyed_rows_in_one_move: int) -&gt; int:
-    return number_of_destroyed_rows_in_one_move * BONUS_FOR_ROW_IN_ONE_MOVE</code></pre>
+def add_points_for_row_numbers(number_of_destroyed_rows_in_move: int) -&gt; int:
+    return number_of_destroyed_rows_in_move * BONUS_FOR_ROW_IN_ONE_MOVE</code></pre>
 </details>
 </section>
 <section>
@@ -46,7 +46,7 @@ def add_points_for_row_numbers(number_of_destroyed_rows_in_one_move: int) -&gt; 
 <h2 class="section-title" id="header-functions">Functions</h2>
 <dl>
 <dt id="ScoreBonusCalculator.add_points_for_row_numbers"><code class="name flex">
-<span>def <span class="ident">add_points_for_row_numbers</span></span>(<span>number_of_destroyed_rows_in_one_move: int) ‑> int</span>
+<span>def <span class="ident">add_points_for_row_numbers</span></span>(<span>number_of_destroyed_rows_in_move: int) ‑> int</span>
 </code></dt>
 <dd>
 <div class="desc"></div>
@@ -54,8 +54,8 @@ def add_points_for_row_numbers(number_of_destroyed_rows_in_one_move: int) -&gt; 
 <summary>
 <span>Expand source code</span>
 </summary>
-<pre><code class="python">def add_points_for_row_numbers(number_of_destroyed_rows_in_one_move: int) -&gt; int:
-    return number_of_destroyed_rows_in_one_move * BONUS_FOR_ROW_IN_ONE_MOVE</code></pre>
+<pre><code class="python">def add_points_for_row_numbers(number_of_destroyed_rows_in_move: int) -&gt; int:
+    return number_of_destroyed_rows_in_move * BONUS_FOR_ROW_IN_ONE_MOVE</code></pre>
 </details>
 </dd>
 <dt id="ScoreBonusCalculator.add_points_for_speed"><code class="name flex">
