@@ -1,3 +1,5 @@
 include README.md
 include LICENSE.md
 recursive-include src/ *
+recursive-include docs/ *
+recursive-include screenshots/ *
