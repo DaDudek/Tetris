@@ -11,7 +11,13 @@ Simple implementation of famous Tetris game created for university subject
 
 ## Game start
 
-go to project folder and run ```python3 GameLoop.py```
+go to project folder and run 
+```
+$ export PYTHONPATH=$PATHONPATH:`pwd`
+$ pip install pygame
+$ pip install SQLAlchemy
+$ python3 src/GameLoop.py
+```
 
 # Rules of the game:
 1. Shape cannot rotate if it would cause collision
